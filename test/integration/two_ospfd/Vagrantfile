@@ -43,15 +43,15 @@ Vagrant.configure("2") do |config|
 
   [1, 2].each do |i|
     config.vm.define "r#{i}" do |c|
-      # r1 192.168.99.101 192.168.100.101
-      # r2 192.168.99.102 192.168.200.101
+      # r1 192.168.99.101 192.168.100.100
+      # r2 192.168.99.102 192.168.200.100
       ip = "192.168.99.10#{i}/24"
-      int_ip = "192.168.#{i}00.10#{i}/24"
+      int_ip = "192.168.#{i}00.100/24"
       c.vm.network "private_network", ip: ip
       c.vm.network "private_network", ip: int_ip
       c.vm.hostname = "r#{i}.virtualbox.reallyenglish.com"
       c.vm.provision :ansible do |ansible|
-        ansible.limit = ip
+        ansible.limit = ip.split('/')[0]
         ansible.playbook = "site.yml"
         ansible.extra_vars = {
           ansible_python_interpreter: '/usr/local/bin/python',
