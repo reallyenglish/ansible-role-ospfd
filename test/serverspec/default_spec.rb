@@ -9,6 +9,10 @@ group   = '_ospfd'
 describe file(config) do
   it { should be_file }
   #its(:content) { should match Regexp.escape('ospfd') }
+  its(:content) { should match /^password1="password1"$/ }
+  its(:content) { should match /^password2="password2"$/ }
+  its(:content) { should match /^auth-md 1 \$password1$/ }
+  its(:content) { should match /^auth-md 2 \$password2$/ }
   its(:content) { should match /^auth-type crypt$/ }
   its(:content) { should match /^auth-md-keyid 1$/ }
   its(:content) { should match /^redistribute static$/ }
