@@ -23,3 +23,7 @@ describe service(service) do
   it { should be_running }
   it { should be_enabled }
 end
+
+describe command('ospfctl show int') do
+  its(:stdout) { should match /^em0\s+10\.0\.2\.15\/24\s+DOWN\s+-\s+unknown\s+00:00:00\s+0\s+0$/ }
+end
