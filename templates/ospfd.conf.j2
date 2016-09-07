@@ -1,0 +1,20 @@
+{% if ospfd_router_id %}
+router-id {{ ospfd_router_id }}
+{% endif %}
+password="{{ ospfd_password }}"
+
+auth-md 1 $password
+auth-type {{ ospfd_auth_type }}
+auth-md-keyid {{ ospfd_auth_md_key_id }}
+
+{% if ospfd_redistribute %}
+redistribute {{ ospfd_redistribute }}
+{% endif %}
+{% for area, interfaces in ospfd_area | dictsort() %}
+area {{ area }} {
+{% for interface, value in interfaces | dictsort() %}
+  interface {{ interface }} { {{ value }} }
+{% endfor %}
+}
+
+{% endfor %}

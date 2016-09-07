@@ -1,7 +1,13 @@
-ospfd_user: ospfd
-ospfd_group: ospfd
-ospfd_log_dir: /var/log/ospfd
-ospfd_db_dir: "{{ __ospfd_db_dir }}"
+ospfd_user: _ospfd
+ospfd_group: _ospfd
 ospfd_service: ospfd
-ospfd_conf: "{{ __ospfd_conf }}"
+ospfd_conf_file: /etc/ospfd.conf
 ospfd_flags: ""
+
+ospfd_router_id: ""
+ospfd_password: ""
+ospfd_auth_type: ""
+ospfd_auth_md_key_id: ""
+
+ospfd_redistribute: ""
+ospfd_area: {}

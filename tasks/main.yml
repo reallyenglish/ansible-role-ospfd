@@ -1,32 +1,11 @@
 ---
 # tasks file for ansible-role-ospfd
 
-- include_vars: "{{ ansible_os_family }}.yml"
-
-- include: "install-{{ ansible_os_family }}.yml"
-
-- name: Create log directory
-  file:
-    path: "{{ ospfd_log_dir }}"
-    mode: 0755
-    owner: "{{ ospfd_user }}"
-    group: "{{ ospfd_group }}"
-    state: directory
-  notify: Restart ospfd
-
-- name: Create db directory
-  file:
-    path: "{{ ospfd_db_dir }}"
-    mode: 0755
-    owner: "{{ ospfd_user }}"
-    group: "{{ ospfd_group }}"
-    state: directory
-  notify: Restart ospfd
-
 - name: Create ospfd.conf
   template:
     src: ospfd.conf.j2
-    dest: "{{ ospfd_conf }}"
+    dest: "{{ ospfd_conf_file }}"
+    mode: 0600
   notify: Restart ospfd
 
 - name: Start ospfd
