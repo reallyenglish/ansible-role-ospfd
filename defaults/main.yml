@@ -5,7 +5,7 @@ ospfd_conf_file: /etc/ospfd.conf
 ospfd_flags: ""
 
 ospfd_router_id: ""
-ospfd_password: ""
+ospfd_password: []
 ospfd_auth_type: ""
 ospfd_auth_md_key_id: ""
 

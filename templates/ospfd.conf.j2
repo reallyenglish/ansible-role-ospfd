@@ -1,9 +1,11 @@
 {% if ospfd_router_id %}
 router-id {{ ospfd_router_id }}
 {% endif %}
-password="{{ ospfd_password }}"
 
-auth-md 1 $password
+{% for password in ospfd_password %}
+password{{ loop.index }}="{{ password }}"
+auth-md {{ loop.index }} $password{{ loop.index }}
+{% endfor %}
 auth-type {{ ospfd_auth_type }}
 auth-md-keyid {{ ospfd_auth_md_key_id }}
 

@@ -2,7 +2,9 @@
   roles:
     - ansible-role-ospfd
   vars:
-    ospfd_password: password
+    ospfd_password:
+      - password1
+      - password2
     ospfd_auth_type: crypt
     ospfd_auth_md_key_id: 1
     ospfd_redistribute: static
