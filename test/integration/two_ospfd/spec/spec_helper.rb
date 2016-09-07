@@ -25,8 +25,14 @@ if ENV['JENKINS_HOME']
 end
 
 Infrataster::Server.define(
-  :foo,
-  'ip.add.re.ss',
+  :r1,
+  '192.168.99.101',
+  vagrant: true
+)
+
+Infrataster::Server.define(
+  :r2,
+  '192.168.99.102',
   vagrant: true
 )
 

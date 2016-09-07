@@ -19,7 +19,6 @@ node ('virtualbox') {
     } finally {
       sh 'bundle exec kitchen destroy'
     }
-/* comment out if you have integration tests
     stage 'integration'
     try {
       // use native rake instead of bundle exec rake
@@ -28,7 +27,6 @@ node ('virtualbox') {
     } finally {
       sh 'rake clean'
     }
-*/
     stage 'Notify'
     step([$class: 'GitHubCommitNotifier', resultOnFailure: 'FAILURE'])
   }
