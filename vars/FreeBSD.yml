@@ -1,2 +1,0 @@
-__ospfd_db_dir: /var/db/ospfd
-__ospfd_conf: /usr/local/etc/ospfd.conf
