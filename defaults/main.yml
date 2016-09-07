@@ -1,0 +1,7 @@
+ospfd_user: ospfd
+ospfd_group: ospfd
+ospfd_log_dir: /var/log/ospfd
+ospfd_db_dir: "{{ __ospfd_db_dir }}"
+ospfd_service: ospfd
+ospfd_conf: "{{ __ospfd_conf }}"
+ospfd_flags: ""

@@ -1,0 +1,6 @@
+---
+
+- name: Install ospfd
+  pkgng:
+    name: ospfd
+    state: present
