@@ -9,9 +9,12 @@ auth-md {{ loop.index }} $password{{ loop.index }}
 auth-type {{ ospfd_auth_type }}
 auth-md-keyid {{ ospfd_auth_md_key_id }}
 
-{% if ospfd_redistribute %}
-redistribute {{ ospfd_redistribute }}
-{% endif %}
+{% for r in ospfd_no_redistribute %}
+no redistribute {{ r }}
+{% endfor %}
+{% for r in ospfd_redistribute %}
+redistribute {{ r }}
+{% endfor %}
 {% for area, interfaces in ospfd_area | dictsort() %}
 area {{ area }} {
 {% for interface, value in interfaces | dictsort() %}
