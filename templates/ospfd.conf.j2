@@ -9,6 +9,9 @@ auth-md {{ loop.index }} $password{{ loop.index }}
 auth-type {{ ospfd_auth_type }}
 auth-md-keyid {{ ospfd_auth_md_key_id }}
 
+{% for r in ospfd_no_redistribute %}
+no redistribute {{ r }}
+{% endfor %}
 {% for r in ospfd_redistribute %}
 redistribute {{ r }}
 {% endfor %}

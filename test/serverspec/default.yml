@@ -9,6 +9,8 @@
     ospfd_auth_md_key_id: 1
     ospfd_redistribute:
       - static
+    ospfd_no_redistribute:
+      - 127.0.0.0/8
     ospfd_area:
       0.0.0.0:
         em0: passive

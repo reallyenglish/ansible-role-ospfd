@@ -16,6 +16,7 @@ describe file(config) do
   its(:content) { should match /^auth-type crypt$/ }
   its(:content) { should match /^auth-md-keyid 1$/ }
   its(:content) { should match /^redistribute static$/ }
+  its(:content) { should match /^no redistribute 127\.0\.0\.0\/8$/ }
   its(:content) { should match /^area 0.0.0.0 {\n\s+interface em0 { passive }\n}/ }
 end
 
