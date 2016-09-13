@@ -9,5 +9,5 @@ ospfd_password: []
 ospfd_auth_type: ""
 ospfd_auth_md_key_id: ""
 
-ospfd_redistribute: ""
+ospfd_redistribute: []
 ospfd_area: {}
