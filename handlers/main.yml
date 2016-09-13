@@ -1,6 +1,6 @@
 ---
 
-- name: Restart ospfd_config
+- name: Restart ospfd
   service:
     name: ospfd
     state: restarted
