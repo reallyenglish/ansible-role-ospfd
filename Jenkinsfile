@@ -3,7 +3,7 @@ node ('virtualbox') {
   env.ANSIBLE_VAULT_PASSWORD_FILE = "~/.ansible_vault_key"
   stage 'Clean up'
   deleteDir()
-
+/*
   stage 'Checkout'
   sh "mkdir $directory"
   dir("$directory") {
@@ -34,9 +34,10 @@ node ('virtualbox') {
     } finally {
       sh 'rake clean'
     }
+*/
     stage 'Notify'
     step([$class: 'GitHubCommitNotifier', resultOnFailure: 'FAILURE'])
-  }
+//  }
 }
 
 def notifyFailed() {
