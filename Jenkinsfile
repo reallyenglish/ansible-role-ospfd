@@ -35,8 +35,13 @@ node ('virtualbox') {
       sh 'rake clean'
     }
 */
-    sh 'no_such_file'
-    sh "echo ${currentBuild.result}"
+    try {
+        sh 'no_such_file'
+    } catch (e) {
+        sh "echo ${currentBuild.result}"
+        notifyBuild(currentBuild.result)
+        throw e
+    }
     stage 'Notify'
     notifyBuild(currentBuild.result)
     step([$class: 'GitHubCommitNotifier', resultOnFailure: 'FAILURE'])
