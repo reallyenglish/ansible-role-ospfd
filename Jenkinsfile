@@ -38,12 +38,11 @@ node ('virtualbox') {
     try {
         sh 'no_such_file'
     } catch (e) {
-        sh "echo ${currentBuild.result}"
+        currentBuild.result = 'FAILURE'
         notifyBuild(currentBuild.result)
         throw e
     }
     stage 'Notify'
-    notifyBuild(currentBuild.result)
     step([$class: 'GitHubCommitNotifier', resultOnFailure: 'FAILURE'])
 //  }
 }
