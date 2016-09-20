@@ -36,6 +36,7 @@ node ('virtualbox') {
     }
 */
     sh 'no_such_file'
+    sh "echo ${currentBuild.result}"
     stage 'Notify'
     notifyBuild(currentBuild.result)
     step([$class: 'GitHubCommitNotifier', resultOnFailure: 'FAILURE'])
