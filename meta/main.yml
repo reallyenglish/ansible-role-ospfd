@@ -10,5 +10,7 @@ galaxy_info:
     versions:
     - 6.0
     - 5.9
+  galaxy_tags:
+    - OSPF
 dependencies:
 #  - { role: username.common, some_parameter: 3 }
