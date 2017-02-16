@@ -1,6 +1,13 @@
 ---
 
 - name: Restart ospfd
+  # XXX call this handler only when you need full restart, which temporally
+  # disrupts the network. in other cases, call `Reload ospfd`.
   service:
     name: ospfd
     state: restarted
+
+- name: Reload ospfd
+  service:
+    name: ospfd
+    state: reloaded

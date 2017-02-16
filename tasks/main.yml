@@ -6,7 +6,7 @@
     src: ospfd.conf.j2
     dest: "{{ ospfd_conf_file }}"
     mode: 0600
-  notify: Restart ospfd
+  notify: Reload ospfd
 
 - name: Start ospfd
   service:

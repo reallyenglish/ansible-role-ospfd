@@ -2,6 +2,13 @@
 
 Configures OpenBSD's `ospfd(8)`
 
+## Notes about reloading and restarting in handler
+
+The role defaults to `ospfctl reload` when configuration has changed, instead
+of restarting, because full restart disrupts the network. This would work in
+most cases, but there might be rare cases where you need _full_ restart
+manually.
+
 # Requirements
 
 None
