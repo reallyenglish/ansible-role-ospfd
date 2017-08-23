@@ -1,5 +1,5 @@
 ---
-- hosts: router
+- hosts: client
   become: yes
   become_method: sudo
   environment:
@@ -9,5 +9,4 @@
 
   pre_tasks:
   roles:
-    - role: reallyenglish.sysctl
-    - role: ansible-role-ospfd
+    - foo

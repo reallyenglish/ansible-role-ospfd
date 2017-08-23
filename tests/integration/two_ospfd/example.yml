@@ -1,6 +1,6 @@
 ---
-- hosts: router
-  become: yes
+- hosts: example
+  become: yes 
   become_method: sudo
   environment:
     http_proxy: "{{ http_proxy | default() }}"
@@ -9,5 +9,4 @@
 
   pre_tasks:
   roles:
-    - role: reallyenglish.sysctl
-    - role: ansible-role-ospfd
+    - foo

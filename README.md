@@ -17,22 +17,20 @@ None
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| ospfd\_user | user of ospfd | \_ospfd |
-| ospfd\_group | group of ospfd | \_ospfd |
-| ospfd\_service | service name | ospfd |
-| ospfd\_conf\_file | path to `ospfd.conf(5)` | /etc/ospfd.conf |
-| ospfd\_flags | unused | "" |
-| ospfd\_router\_id | router id | "" |
-| ospfd\_password | shared secret for authentication | [] |
-| ospfd\_auth\_type | | "" |
-| ospfd\_auth\_md\_key\_id | | "" |
-| ospfd\_redistribute | list of routes to redistribute | [] |
-| ospfd\_no\_redistribute | lits of routes _NOT_ to redistribute | [] |
-| ospfd\_area | dict of OSPF area (see bellow) | {} |
+| `ospfd_user` | user name of `ospfd` | `_ospfd` |
+| `ospfd_group` | group name of `ospfd` | `_ospfd` |
+| `ospfd_service` | service name of `ospfd` | `ospfd` |
+| `ospfd_conf_file` | | `/etc/ospfd.conf` |
+| `ospfd_flags` | unused | `""` |
+| `ospfd_router_id` | router ID | `""` |
+| `ospfd_password` | shared secret for authentication | `[]` |
+| `ospfd_auth_type` | authentication type | `""` |
+| `ospfd_auth_md_key_id` | `md_key_id` for authentication | `""` |
+| `ospfd_redistribute` | list of routes to redistribute | `[]` |
+| `ospfd_no_redistribute` | list of routes _NOT_ to redistribute | `[]` |
+| `ospfd_area` | dict of OSPF area (see below) | `{}` |
 
-Created by [yaml2readme.rb](https://gist.github.com/trombik/b2df709657c08d845b1d3b3916e592d3)
-
-## ospfd\_area
+## `ospfd_area`
 
 A dict of OSPF areas. The key is OSPF area ID, and the value is a dict of interfaces.
 
